@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome - RMK SpyChat</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #e6f2ff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #005fa3;
+    }
+    p {
+      font-size: 20px;
+      color: #333;
+    }
+    .logout-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #cc0000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+    .logout-btn:hover {
+      background-color: #990000;
+    }
+    .profile-pic {
+      width: 120px;
+      border-radius: 50%;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="rmkspychat.jpg" alt="Profile" class="profile-pic">
+  <h1>Welcome to Your Dashboard 🎉</h1>
+  <p id="welcome-msg">Hello, <strong>User</strong>! You’ve successfully logged in.</p>
+  <p>Explore secure features and start chatting!</p>
+
+  <a class="logout-btn" href="login.html">Logout</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get("username") || "User";
+    document.getElementById("welcome-msg").innerHTML =
+      `Hello, <strong>${username}</strong>! You’ve successfully logged in.`;
+  </script>
+
+</body>
+</html>

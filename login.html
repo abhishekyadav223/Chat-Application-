@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>www.rmkspychat.com</title>
+  <link rel="icon" href="https://rmkspychat.neocities.org/rmkspychat.jpg">
+
+  <style>
+    .men {
+      position: static;
+      height: 10%;
+      width: 30px;
+      margin: 0% 0% 0% 70%;
+    }
+
+    .mobile {
+      position: absolute;
+      margin: 5% 0% 10% 35%;
+    }
+
+    .content {
+      color: #D97E06;
+      position: absolute;
+      margin: 7% 10% 27% 41.5%;
+    }
+
+    .women {
+      position: static;
+      margin: 16% 35% 0% 3%;
+    }
+
+    .login button {
+      background-color: #6D35FC;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .login button:hover {
+      background-color: #5528cc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- men photo -->
+  <div class="men">
+    <img src="https://rmkspychat.neocities.org/IMG_20231103_201441.jpg" width="400" height="405">
+  </div>
+
+  <!-- mobile -->
+  <div class="mobile">
+    <img src="https://rmkspychat.neocities.org/IMG_20231105_071802.jpg">
+  </div>
+
+  <!-- content -->
+  <center>
+    <div class="content">
+      <h1 style="color:#6D35FC">Login to <br>Your Account</h1>
+      <h3>
+        <form onsubmit="loginRedirect(); return false;">
+          <label for="username">Username:</label><br>
+          <input type="text" id="username" name="username" required><br><br>
+
+          <label for="password">Password:</label><br>
+          <input type="password" name="password" required><br><br>
+
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Remember me</label><br><br>
+
+          <div class="login">
+            <button type="submit">LOGIN</button><br>
+          </div>
+
+          <a href="https://rmkspychat.neocities.org/forgot-password">Forgot password</a><br>
+
+          <p>Don't have an account?
+            <a href="https://rmkspychat.neocities.org/register"><br>SIGN UP</a>
+          </p>
+        </form>
+      </h3>
+    </div>
+  </center>
+
+  <!-- women image -->
+  <div class="women">
+    <img src="https://rmkspychat.neocities.org/IMG_20231103_201535.jpg" width="400" height="430">
+  </div>
+
+  <!-- script to get username and redirect -->
+  <script>
+    function loginRedirect() {
+      const username = document.getElementById("username").value.trim();
+      if (username) {
+        window.location.href = `https://rmkspychat.neocities.org/dashboard.html?username=${encodeURIComponent(username)}`;
+      } else {
+        alert("Please enter your username.");
+      }
+    }
+  </script>
+
+</body>
+</html>

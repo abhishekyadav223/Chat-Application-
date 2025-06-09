@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reset Password | RMK SpyChat</title>
+  <link rel="icon" href="https://rmkspychat.neocities.org/rmkspychat.jpg">
+  <style>
+    body {
+      background-color: #3384f5;
+      background-size: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .sms {
+      position: absolute;
+      margin: -3% 0% -2% 2%;
+    }
+
+    .mobile {
+      position: absolute;
+      margin: -2% 0% 0% 53.5%;
+    }
+
+    .content {
+      color: #20a4e6;
+      position: absolute;
+      margin: 13% 0% 0% 71.5%;
+    }
+
+    h1 {
+      color: #122ac7;
+      position: absolute;
+      margin: 7% 0% 0% 69.5%;
+    }
+
+    input {
+      padding: 8px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #122ac7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    .success {
+      color: green;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SMS Image -->
+  <div class="sms">
+    <img src="https://rmkspychat.neocities.org/IMG_20231105_111838.jpg" width="800" height="817">
+  </div>
+
+  <!-- Mobile Frame -->
+  <div class="mobile">
+    <img src="https://rmkspychat.neocities.org/pngtree-blank-screen-mobile-phone-for-mockup-png-image_6446832_prev_ui.png" width="730" height="780">
+  </div>
+
+  <h1>Reset Password</h1>
+
+  <!-- Password Form -->
+  <div class="content">
+    <h3>
+      <center>
+        <form onsubmit="return validatePassword();">
+          <div class="password-wrapper">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required>
+            <span class="toggle-password" onclick="toggleVisibility('password', this)">👁️</span>
+          </div>
+          <br><br>
+
+          <div class="password-wrapper">
+            <label for="confirm">Confirm Password</label><br>
+            <input type="password" id="confirm" name="confirm" required>
+            <span class="toggle-password" onclick="toggleVisibility('confirm', this)">👁️</span>
+          </div>
+          <br><br>
+
+          <div id="message" class="error"></div><br>
+          <button type="submit">RESET</button>
+        </form>
+      </center>
+    </h3>
+  </div>
+
+  <!-- JavaScript for validation and toggle -->
+  <script>
+    function validatePassword() {
+      const password = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm').value;
+      const message = document.getElementById('message');
+
+      const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+      if (password !== confirm) {
+        message.textContent = "❌ Passwords do not match.";
+        message.className = "error";
+        return false;
+      }
+
+      if (!regex.test(password)) {
+        message.textContent = "❌ Password must be at least 8 characters long, contain 1 uppercase, 1 number, and 1 special character.";
+        message.className = "error";
+        return false;
+      }
+
+      message.textContent = "✅ Password reset successful! Redirecting...";
+      message.className = "success";
+      setTimeout(() => {
+        window.location.href = "https://rmkspychat.neocities.org/login";
+      }, 1500);
+      return false;
+    }
+
+    function toggleVisibility(fieldId, icon) {
+      const field = document.getElementById(fieldId);
+      if (field.type === "password") {
+        field.type = "text";
+        icon.textContent = "🙈";
+      } else {
+        field.type = "password";
+        icon.textContent = "👁️";
+      }
+    }
+  </script>
+
+</body>
+</html>
