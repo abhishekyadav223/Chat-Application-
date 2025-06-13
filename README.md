@@ -33,3 +33,8 @@ This is my first GitHub project—a front‑end prototype of a chat application.
    ```bash
    git clone https://github.com/abhishekyadav223/Chat-Application-.git
    cd Chat-Application-
+2. Open any .html file in your browser:
+
+Double-click index.html or
+
+Use a browser or live server extension in VS Code
